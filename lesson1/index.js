@@ -1,0 +1,3 @@
+functtion onPageLoadFn() {
+	alert('Hello');
+}
