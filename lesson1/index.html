@@ -1,19 +1,22 @@
 <html>
 <head>
-<script src="index.js"/>
+
 </head>
 <title>
 Lesson1
 </title>
-<body onload="onPageLoadFn()">
-
-<button type="button" id="add">Add</button>
-<button type="button" id="minus">minus</button>
-<button type="button" id="multiply">multiply</button>
-
-<input type="number" id="a"/>
+<body >
+ 
+<tr>   <input type="number" id="a"/></tr> 
 <input type="number" id="b"/>
-<input type="number" id="result"/>
+<input type="number" id="result" value="0"/>
+
+<button type="button" id="add"  onclick="calc(event)">+</button>
+<button type="button" id="minus" onclick="calc(event)">-</button>
+<button type="button" id="multiply" onclick="calc(event)">*</button>
+ 
+<script src="index.js"> </script>
 
 </body>
 </html>
+ 
