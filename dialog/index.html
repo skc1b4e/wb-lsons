@@ -1,0 +1,119 @@
+ 
+<div class="subject-info-box-1">
+  <select multiple="multiple" id='lstBox1' class="form-control">
+    <option value="ajax">Ajax</option>
+    <option value="jquery">jQuery</option>
+    <option value="javascript">JavaScript</option>
+    <option value="mootool">MooTools</option>
+    <option value="prototype">Prototype</option>
+    <option value="dojo">Dojo</option>
+  </select>
+</div>
+
+<div class="subject-info-arrows text-center">
+  <input type="button" id="btnAllRight" value=">>" class="btn btn-default"  /><br />
+  <input type="button" id="btnRight" value=">" class="btn btn-default" /><br />
+  <input type="button" id="btnLeft" value="<" class="btn btn-default"  /><br />
+  <input type="button" id="btnAllLeft" value="<<" class="btn btn-default"  />
+</div>
+
+<div class="subject-info-box-2">
+  <select multiple="multiple" id='lstBox2' class="form-control">
+    <option value="asp">ASP.NET</option>
+    <option value="c#">C#</option>
+    <option value="vb">VB.NET</option>
+    <option value="java">Java</option>
+    <option value="php">PHP</option>
+    <option value="python">Python</option>
+  </select>
+</div>
+
+<div class="clearfix"></div>
+
+<script>
+    document.getElementById('btnRight').addEventListener('click', function(e) {
+      var options = document.getElementById('lstBox1').options;
+      var selectedOpts = [];
+      
+      for(var i=0; i < options.length; i++) {
+        if (options[i].selected) {
+          selectedOpts.push(options[i]);
+        }
+      }
+      
+      if (selectedOpts.length == 0) {
+        alert("Nothing to move.");
+        e.preventDefault();
+      }
+      
+      var lstBox2 = document.getElementById('lstBox2');
+      
+      selectedOpts.forEach(function(opt) {
+        lstBox2.appendChild(opt);
+      });
+    })
+    document.getElementById('btnLeft').addEventListener('click', function(e) {
+      var options = document.getElementById('lstBox2').options;
+      var selectedOpts = [];
+      
+      for(var i=0; i < options.length; i++) {
+        if (options[i].selected) {
+          selectedOpts.push(options[i]);
+        }
+      }
+      
+      if (selectedOpts.length == 0) {
+        alert("Nothing to move.");
+        e.preventDefault();
+      }
+      
+      var lstBox1 = document.getElementById('lstBox1');
+      
+      selectedOpts.forEach(function(opt) {
+        lstBox1.appendChild(opt);
+      });
+    })
+    
+    document.getElementById('btnAllRight').addEventListener('click', function(e) {
+      var options = document.getElementById('lstBox1').options;
+      var selectedOpts = [];
+      
+      for(var i=0; i < options.length; i++) {
+        if (options[i].selected) {
+          selectedOpts.push(options[i]);
+        }
+      }
+      
+      if (selectedOpts.length == 0) {
+        alert("Nothing to move.");
+        e.preventDefault();
+      }
+      
+      var lstBox2 = document.getElementById('lstBox2');
+      
+      selectedOpts.forEach(function(opt) {
+        lstBox2.appendChild(opt);
+      });
+    })
+    document.getElementById('btnAllLeft').addEventListener('click', function(e) {
+      var options = document.getElementById('lstBox2').options;
+      var selectedOpts = [];
+      
+      for(var i=0; i < options.length; i++) {
+        if (options[i].selected) {
+          selectedOpts.push(options[i]);
+        }
+      }
+      
+      if (selectedOpts.length == 0) {
+        alert("Nothing to move.");
+        e.preventDefault();
+      }
+      
+      var lstBox1 = document.getElementById('lstBox1');
+      
+      selectedOpts.forEach(function(opt) {
+        lstBox1.appendChild(opt);
+      });
+    })
+</script>
