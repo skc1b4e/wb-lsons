@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var countryObject = {
+          "USA": {
+            "New York": ["New York city", "Buffalo", "Albany"],
+            "California": ["Los Angeles", "San Francisco", "San Diego"],
+            "Alabama": ["Birmingham", "Montgomery", "Huntsville"]
+             },
+          "Canada": {
+            "Ontario": ["Toronto", "Ottawa"],
+            "British Columbia": ["Vancouver", "Victoria"]
+          },
+          "Australia": {
+            "New South Wales": ["Sydney", "Newcastle"],
+            "Queensland": ["City of Brisbane", "Gold Coast"]
+          } 
+        }
+        
+        
+        window.onload = function() {
+          var countrySel = document.getElementById("countrySel"),
+            stateSel = document.getElementById("stateSel"),
+            cityel = document.getElementById("cityel");
+          for (var country in countryObject) {
+            countrySel.options[countrySel.options.length] = new Option(country, country);
+          }
+          countrySel.onchange = function() {
+            stateSel.length = 1; // remove all options bar first
+            cityel.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) return; // done   
+            for (var state in countryObject[this.value]) {
+              stateSel.options[stateSel.options.length] = new Option(state, state);
+            }
+          }
+          countrySel.onchange(); // reset in case page is reloaded
+          stateSel.onchange = function() {
+            cityel.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) return; // done   
+            var city = countryObject[countrySel.value][this.value];
+            for (var i = 0; i < city.length; i++) {
+              cityel.options[cityel.options.length] = new Option(city[i], city[i]);
+            }
+          }
+        }
+        
+        
+       
+        </script>
+        
+        <div class="dynamic-dropdown">
+          <center>
+            <form name="myform" id="myForm">
+              <h3 id="dropdown-h3">Search</h3>
+              <ul>
+                <li>
+                  <select name="optone" id="countrySel" size="1">
+                    <option value="" selected="selected">Select country</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="opttwo" id="stateSel" size="1">
+                    <option value="" selected="selected">Select state</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="optthree" id="cityel" size="1">
+                    <option value="" selected="selected">Select city</option>
+                  </select>
+                </li>
+        
+               
+              </ul>
+            </form>
+          </center>
+        </div>
+        <hr/>
+</body>
+</html>
