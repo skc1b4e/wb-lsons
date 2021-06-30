@@ -7,8 +7,7 @@ var myObj =
 		document.getElementById('country').addEventListener('change',function()
 			{
              var e = document.getElementById("country");
-             var strCtry = e.options[e.selectedIndex].value;
-                
+             var strCtry = e.options[e.selectedIndex].value;                
 			that.load_state(strCtry);
 			});
 		document.getElementById('state').addEventListener('change',function()
@@ -19,6 +18,7 @@ var myObj =
                 var strState= f.options[f.selectedIndex].value;
 			that.load_city(strCtry,strState);
 			});		
+
 	},
 	load_country:function()
 	{
@@ -47,6 +47,10 @@ var myObj =
 	load_state:function(id)
 		{
 		document.getElementById('state').innerHTML = '';
+			var op = document.createElement('option');
+					op.innerText = "Select state";
+					op.setAttribute('value',0);
+					document.getElementById('state').appendChild(op);
 		var xhr = new XMLHttpRequest();
 		
         xhr.open('GET','https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/states.json',true);
