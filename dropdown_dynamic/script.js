@@ -80,6 +80,10 @@ var myObj =
 	load_city:function(country_id,id)
 		{
 		document.getElementById('city').innerHTML = '';
+		var op = document.createElement('option');
+				op.innerText = "Select city";
+				op.setAttribute('value',0);
+				document.getElementById('city').appendChild(op);
 		var xhr = new XMLHttpRequest();
 		
         xhr.open('GET','https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/cities.json',true);
